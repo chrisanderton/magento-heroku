@@ -39,6 +39,7 @@ fi
 
 # extract the path (if any)
 path="`echo $url | grep / | cut -d/ -f2-`"
+path="`echo $path | cut -d? -f1`"
 
 # export envvars for psql
 export DB_USER=$user
