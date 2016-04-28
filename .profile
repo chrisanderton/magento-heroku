@@ -4,6 +4,7 @@ if [ "$CLEARDB_DATABASE_URL" = "" ]; then
     echo "Please set CLEARDB_DATABASE_URL";
 exit 1; fi
 
+# example d03b41856deda7fc8498b7a3758a75f
 if [ "$MAGENTO_CRYPT_KEY" = "" ]; then 
     echo "Please set MAGENTO_CRYPT_KEY";
 exit 1; fi
@@ -53,20 +54,20 @@ echo '- Copy local.xml'
 cp app/etc/local.xml.template app/etc/local.xml
 
 echo '- Populate values'
-sed -i -e "s/{{key}}/<![CDATA[$MAGENTO_CRYPT_KEY]]/" app/etc/local.xml
-sed -i -e "s/{{date}}/<![CDATA[Thu, 28 Apr 2016 13:09:07 +0000]]/" app/etc/local.xml
+sed -i -e "s/{{key}}/<![CDATA[$MAGENTO_CRYPT_KEY]]>/" app/etc/local.xml
+sed -i -e "s/{{date}}/<![CDATA[Thu, 28 Apr 2016 13:09:07 +0000]]>/" app/etc/local.xml
 
-sed -i -e "s/{{db_host}}/<![CDATA[$DB_HOST]]/" app/etc/local.xml
-sed -i -e "s/{{db_user}}/<![CDATA[$DB_USER]]/" app/etc/local.xml
-sed -i -e "s/{{db_pass}}/<![CDATA[$DB_PASS]]/" app/etc/local.xml
-sed -i -e "s/{{db_name}}/<![CDATA[$DB_NAME]]/" app/etc/local.xml
+sed -i -e "s/{{db_host}}/<![CDATA[$DB_HOST]]>/" app/etc/local.xml
+sed -i -e "s/{{db_user}}/<![CDATA[$DB_USER]]>/" app/etc/local.xml
+sed -i -e "s/{{db_pass}}/<![CDATA[$DB_PASS]]>/" app/etc/local.xml
+sed -i -e "s/{{db_name}}/<![CDATA[$DB_NAME]]>/" app/etc/local.xml
 
-sed -i -e "s/{{db_prefix}}/<![CDATA[]]/" app/etc/local.xml
-sed -i -e "s/{{db_model}}/<![CDATA[mysql4]]/" app/etc/local.xml
-sed -i -e "s/{{db_type}}/<![CDATA[pdo_mysql]]/" app/etc/local.xml
-sed -i -e "s/{{db_pdo_type}}/<![CDATA[]]/" app/etc/local.xml
-sed -i -e "s/{{db_init_statemants}}/<![CDATA[SET NAMES utf8]]/" app/etc/local.xml
+sed -i -e "s/{{db_prefix}}/<![CDATA[]]>/" app/etc/local.xml
+sed -i -e "s/{{db_model}}/<![CDATA[mysql4]]>/" app/etc/local.xml
+sed -i -e "s/{{db_type}}/<![CDATA[pdo_mysql]]>/" app/etc/local.xml
+sed -i -e "s/{{db_pdo_type}}/<![CDATA[]]>/" app/etc/local.xml
+sed -i -e "s/{{db_init_statemants}}/<![CDATA[SET NAMES utf8]]>/" app/etc/local.xml
 
-sed -i -e "s/{{session_save}}/<![CDATA[db]]/" app/etc/local.xml
+sed -i -e "s/{{session_save}}/<![CDATA[db]]>/" app/etc/local.xml
 
-sed -i -e "s/{{admin_frontname}}/<![CDATA[admin]]/" app/etc/local.xml
+sed -i -e "s/{{admin_frontname}}/<![CDATA[admin]]>/" app/etc/local.xml
